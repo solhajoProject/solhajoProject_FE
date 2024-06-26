@@ -1,27 +1,33 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Counter from "./pages/Counter";
-import Input from "./pages/Input";
-import Input2 from "./pages/Input2";
-import List from "./pages/List";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Multipart from "./pages/Multipart";
+import KakaoCallback from "./pages/KakaoCallback";
+import RoomRegister from "./pages/RoomRegister";
+import RoomList from "./pages/RoomList";
+import ChatRoom from "./pages/ChatRoom"; // ChatRoom 컴포넌트 임포트
 
 function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/">Home</Link> | <Link to="/about">About</Link> |{" "}
-        <Link to="/counter">Counter</Link> | <Link to="/input">Input</Link> |{" "}
-        <Link to="/input2">Input2</Link> | <Link to="/list">List</Link> |{" "}
+        <Link to="/">Home</Link> | <Link to="/login">Login</Link> |{" "}
+        <Link to="/signup">Signup</Link> |{" "}
+        <Link to="/multipart">Multipart</Link> |{" "}
+        <Link to="/roomRegister">RoomRegister</Link> |{" "}
+        <Link to="/roomList">RoomList</Link>
       </nav>
       <Routes>
+        <Route path="/kakao-callback" element={<KakaoCallback />} />
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/counter" element={<Counter />} />
-        <Route path="/input" element={<Input />} />
-        <Route path="/input2" element={<Input2 />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/roomRegister" element={<RoomRegister />} />
+        <Route path="/multipart" element={<Multipart />} />
+        <Route path="/roomList" element={<RoomList />} />
+        <Route path="/chatroom/:roomId" element={<ChatRoom />} />{" "}
       </Routes>
     </div>
   );

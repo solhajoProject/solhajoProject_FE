@@ -1,0 +1,88 @@
+/* ChatRoom.css */
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.my-message {
+  align-items: flex-end;
+}
+
+.their-message {
+  align-items: flex-start;
+}
+
+.sender-name {
+  margin-bottom: 2px;
+  font-size: 12px;
+  color: #888;
+}
+
+.message-content {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 15px;
+  color: #333;
+}
+
+.my-message .message-content {
+  background-color: #9b9da0;
+  color: white;
+}
+
+.their-message .message-content {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+/* ChatRoom.css에 추가 */
+.chat-container {
+  max-width: 800px; /* 채팅 화면의 최대 너비 설정 */
+  margin: 50px auto 0; /* 상단에 50px 여백 추가 및 중앙 정렬 */
+  padding: 20px; /* 패딩 추가 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  background-color: #f9f9f9; /* 배경색 설정 */
+  border-radius: 10px; /* 모든 채팅 컨테이너 모서리 둥글게 */
+}
+
+/* ChatRoom.css */
+.chat-header {
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 10px; /* 상하좌우 패딩 */
+  margin-bottom: 20px; /* 하단 여백 */
+  background-color: #f1f1f1; /* 배경색 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  color: #333; /* 글자색 */
+  font-size: 16px; /* 글자 크기 */
+  border-radius: 10px; /* 모든 채팅 컨테이너 모서리 둥글게 */
+}
+
+.chat-messages {
+  max-height: 500px; /* 메시지 목록의 최대 높이 */
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 생성 */
+  border-radius: 10px; /* 모든 채팅 컨테이너 모서리 둥글게 */
+}
+
+.input-area {
+  display: flex; /* 입력 영역을 플렉스 박스로 설정 */
+  margin-top: 10px; /* 입력 영역 위쪽 여백 */
+  border-radius: 10px; /* 모든 채팅 컨테이너 모서리 둥글게 */
+}
+
+.input-text {
+  flex: 1; /* 텍스트 입력란을 유연하게 확장 */
+  padding: 10px; /* 편안한 타이핑을 위한 패딩 */
+  margin-right: 5px; /* 오른쪽 여백 */
+  border-radius: 10px; /* 모든 채팅 컨테이너 모서리 둥글게 */
+}
+
+.send-button {
+  padding: 10px 20px; /* 버튼 패딩 */
+  background-color: #30302f; /* 버튼 색상 */
+  color: white; /* 글자 색상 */
+
+  cursor: pointer; /* 마우스 오버 시 포인터 변경 */
+  border-radius: 10px; /* 모든 채팅 컨테이너 모서리 둥글게 */
+}

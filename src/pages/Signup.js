@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios"; // Axios 불러오기
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; // useNavigate 훅 불러오기
 
-const About = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -18,26 +20,32 @@ const About = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // 폼 제출 시 페이지 새로고침 방지
-    // Axios를 사용하여 서버로 데이터 전송
     try {
       const response = await axios.post(
-        "http://localhost:8081/api/user",
+        "http://localhost:8081/api/signup",
         formData,
         {
           headers: {
-            "Content-Type": "application/json", // JSON 형태로 데이터를 전송함을 명시
+            "Content-Type": "application/json",
           },
         }
       );
-      // 성공적으로 데이터를 전송했다면, 응답 처리
       console.log("Success:", response.data);
-      // 여기서 성공 처리 로직을 구현하세요.
+      // 성공 처리 로직
+      if (response.data.status === "success") {
+        alert("회원가입 완료되었습니다."); // 성공 알림
+        navigate("/"); // 홈 페이지로 리다이렉트
+      }
     } catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
       );
-      // 여기서 오류 처리 로직을 구현하세요.
+      // 오류 처리 로직
+      if (error.response && error.response.data.status === "fail") {
+        alert("이미 가입된 이메일입니다."); // 사용자에게 알림
+        setFormData({ ...formData, email: "" }); // 이메일 입력 필드 초기화
+      }
     }
   };
 
@@ -46,12 +54,12 @@ const About = () => {
       <h1>회원가입 화면입니다.</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">사용자 이름:</label>
+          <label htmlFor="name">사용자 이름:</label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={formData.username}
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
           />
         </div>
@@ -81,4 +89,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Signup;
